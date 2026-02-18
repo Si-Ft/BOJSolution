@@ -1,0 +1,2 @@
+Ctrl+Shift+B >> build 폴더로 컴파일
+
