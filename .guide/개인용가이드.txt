@@ -1,2 +1,2 @@
 Ctrl+Shift+B >> build 폴더로 컴파일
-
+Ctrl+I >> copilot 채팅 사용
