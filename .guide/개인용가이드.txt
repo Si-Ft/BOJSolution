@@ -1,2 +1,3 @@
 Ctrl+Shift+B >> build 폴더로 컴파일
 Ctrl+I >> copilot 채팅 사용
+Ctrl+Z >> 콘솔에서 EOF 입력
