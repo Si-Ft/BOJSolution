@@ -1,0 +1,11 @@
+디버그용 (각 정의와 사용)
+#define debug(x) cout << #x << " = " << x << "\n";
+debug(n);
+
+스왑
+#define SWAP(a,b) {auto tmp=a;a=b;b=tmp;}
+SWAP(v1, v2);
+
+for문 단축
+#define rep(i,a,b) for(int i=a;i<b;i++)
+rep(i,0,n)
