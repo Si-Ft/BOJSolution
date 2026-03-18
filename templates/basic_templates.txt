@@ -9,3 +9,7 @@ SWAP(v1, v2);
 for문 단축
 #define rep(i,a,b) for(int i=a;i<b;i++)
 rep(i,0,n)
+
+각종 대표 예제들
+이진 그래프 : G4 5639 | G1 2263
+선분 교차 판정 (CCW) : G5 11758
