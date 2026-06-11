@@ -12,13 +12,12 @@ int main() {
 }
 
 void PS(int TCnum) {
-    bool dp[10001] = {false}; // dp[i] = i를 만들 수 있는지 여부
+    bool dp[10001] = {true,}; // dp[i] = i를 만들 수 있는지 여부
     int N;
     scanf("%d", &N);
     rep(i,0,N) {
         int num;
         scanf("%d", &num);
-        dp[num] = true;
 
         for (int j=10000; j>=num; j--) {
             if (dp[j-num]) dp[j] = true;
