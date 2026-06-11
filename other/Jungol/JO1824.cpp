@@ -1,12 +1,10 @@
 #include <stdio.h>
-#include <unordered_set>
 #define rep(i,a,b) for(int i=a;i<b;i++)
-using namespace std;
 
 int board[9][9];
-unordered_set<int> garo_line[9];
-unordered_set<int> sero_line[9];
-unordered_set<int> square[3][3];
+int garo_line[9] = {0};
+int sero_line[9] = {0};
+int square[3][3] = {0};
 
 bool termin = false;
 void backtrack(int y, int x);
@@ -19,9 +17,9 @@ int main() {
             board[i][j] = inp - '0';
             if (board[i][j] == 0) continue;
 
-            garo_line[i].insert(board[i][j]);
-            sero_line[j].insert(board[i][j]);
-            square[i/3][j/3].insert(board[i][j]);
+            garo_line[i] |= 1<<board[i][j];
+            sero_line[j] |= 1<<board[i][j];
+            square[i/3][j/3] |= 1<<board[i][j];
         }
     }
 
@@ -53,21 +51,21 @@ void backtrack(int y, int x) {
 
     // 수 하나씩 넣어보기
     rep(i,1,10) {
-        if (garo_line[y].count(i)) continue;
-        if (sero_line[x].count(i)) continue;
-        if (square[y/3][x/3].count(i)) continue;
+        if (garo_line[y] & (1<<i)) continue;
+        if (sero_line[x] & (1<<i)) continue;
+        if (square[y/3][x/3] & (1<<i)) continue;
 
-        garo_line[y].insert(i);
-        sero_line[x].insert(i);
-        square[y/3][x/3].insert(i);
+        garo_line[y] |= 1<<i;
+        sero_line[x] |= 1<<i;
+        square[y/3][x/3] |= 1<<i;
         board[y][x] = i;
 
         backtrack(y,x+1);
         if (termin) return;
 
-        garo_line[y].erase(i);
-        sero_line[x].erase(i);
-        square[y/3][x/3].erase(i);
+        garo_line[y] -= 1<<i;
+        sero_line[x] -= 1<<i;
+        square[y/3][x/3] -= 1<<i;
         board[y][x] = 0;
     }
 }
