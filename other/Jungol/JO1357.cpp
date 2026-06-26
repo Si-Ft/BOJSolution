@@ -20,7 +20,7 @@ int main() {
         }
     }
 
-    sort(AB,AB+(N*N));
+    sort(AB,AB+(N*N)); // 제일 오래 걸림
     sort(CD,CD+(N*N));
 
     // 정렬 후, AB의 맨 처음(가장 작음)과 CD의 맨 마지막 부분(가장 큼)을 포인터로 잡음

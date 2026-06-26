@@ -10,7 +10,6 @@ vector<int> emptySpaces; // 빈칸의 인덱스 저장
 vector<int> virusPositions; // 바이러스의 인덱스 저장
 
 int bfs();
-
 int main() {
     scanf("%d %d", &N, &M);
     rep(i,0,N) {
