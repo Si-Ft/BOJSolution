@@ -3,6 +3,10 @@
 
 using namespace std;
 
+/*
+  분류 자체는 스택/큐로 분류되지만, 사실상 구현 문제에 가까움
+  스택 대신 idx를 이용해서 구현하는 방법으로 풀었습니다.
+*/
 vector<int> solution(vector<int> progresses, vector<int> speeds) {
     vector<int> answer;
     int N = progresses.size();

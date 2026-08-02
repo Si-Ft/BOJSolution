@@ -12,6 +12,7 @@ int main() {
   return 0;
 }
 
+// a+b-(c+d)=K
 // 두 수로 index의 수를 만들 수 있는 경우의 수
 int twosum[200001] = {0}; 
 
