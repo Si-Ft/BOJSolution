@@ -1,3 +1,14 @@
 Ctrl+Shift+B >> build 폴더로 컴파일
 Ctrl+I >> copilot 채팅 사용
 Ctrl+Z >> 콘솔에서 EOF 입력
+
+Git Bash에서 C/C++ 풀이 실행
+1. VS Code의 Git Bash 터미널에서 시작한다. 현재 폴더가 BOJSolution이면 바로 2단계로, 다른 폴더면 cd /d/ssafy_ws/BOJSolution 으로 이동한다.
+2. ./run Solves/bronze_4/31403.cpp 를 입력한다. 다른 풀이는 소스 경로만 바꾼다.
+3. 이 예제에 1 2 3 을 입력하고 Enter를 누르면 0과 9가 한 줄씩 출력된다.
+
+파일 입출력: ./run Solves/bronze_4/31403.cpp < input.txt > output.txt
+input.txt는 현재 폴더에 둔다. output.txt는 실행할 때마다 덮어쓴다.
+
+.c 파일은 C17, .cpp 파일은 C++20으로 컴파일한다.
+./run은 실행할 때마다 임시 폴더에 program.exe를 만들고, 실행이 끝나면 exe와 임시 폴더를 삭제한다.

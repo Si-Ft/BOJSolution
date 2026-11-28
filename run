@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -eu
+
+if (( $# == 0 )); then
+    echo 'Usage: ./run SOURCE.c|SOURCE.cpp [program arguments...]' >&2
+    exit 2
+fi
+
+source_file=$1
+shift
+case "$source_file" in
+    -*) source_file=./$source_file ;;
+esac
+export PATH="/d/MSYS2/mingw64/bin:$PATH"
+case "$source_file" in
+    *.c) compiler=gcc; standard=c17 ;;
+    *.cpp|*.cc|*.cxx|*.C) compiler=g++; standard=c++20 ;;
+    *) echo "Unsupported source file: $source_file" >&2; exit 2 ;;
+esac
+
+build_dir=$(mktemp -d)
+trap 'rm -f -- "$build_dir/program.exe"; rmdir -- "$build_dir"' EXIT
+"$compiler" "-std=$standard" -Wall -Wextra -g "$source_file" -o "$build_dir/program.exe"
+
+# Native Windows programs need a console bridge for interactive input in MinTTY.
+if [[ -t 0 && -t 1 && -t 2 && $(tty) == /dev/pty* ]] && command -v winpty >/dev/null; then
+    winpty "$build_dir/program.exe" "$@"
+else
+    "$build_dir/program.exe" "$@"
+fi
