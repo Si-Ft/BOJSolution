@@ -12,3 +12,9 @@ input.txt는 현재 폴더에 둔다. output.txt는 실행할 때마다 덮어�
 
 .c 파일은 C17, .cpp 파일은 C++20으로 컴파일한다.
 ./run은 실행할 때마다 임시 폴더에 program.exe를 만들고, 실행이 끝나면 exe와 임시 폴더를 삭제한다.
+
+VS Code 파일 입출력 단축키 (Ctrl+Alt+F9)
+1. BOJSolution 폴더의 input.txt에 테스트 입력을 적고 저장한다.
+2. 실행할 .c 또는 .cpp 파일로 돌아와 저장한 뒤, 소스 편집기에서 Ctrl+Alt+F9를 누른다.
+3. BOJSolution 폴더의 output.txt에서 결과를 확인한다. 실행할 때마다 기존 출력은 덮어쓴다.
+컴파일 오류와 표준 오류(stderr)는 VS Code 작업 터미널에 표시된다.
